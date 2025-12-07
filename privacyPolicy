@@ -1,31 +1,64 @@
-## プライバシーポリシー
+# Privacy Policy - Screenshot to AI (ChatGPT & Grok)
 
-Screenshot to AI（以下、「本拡張機能」）は、ユーザーが表示中のページをスクリーンショットとして取得し、その画像をユーザー自身が選択したAIサービス（ChatGPT または Grok）に送信して解析を行うために動作します。
+**Last Updated: December 2025**
 
-### 収集するデータ
-本拡張機能は、ユーザーが明示的に操作した場合に限り、現在表示中のページのスクリーンショット画像を取得します。  
-この画像はユーザーが指定したAIサービスへ送信されます。
+## Overview
 
-本拡張機能は以下のデータを収集・保存・転送しません。
+Screenshot to AI is a browser extension that captures screenshots and sends them to AI services (ChatGPT and Grok) for analysis. This extension is primarily designed for Japanese users.
 
-- 個人情報（名前、住所、メールアドレスなど）
-- 健康・財務情報
-- 認証情報（パスワード、トークン等）
-- ユーザーのブラウジング履歴
-- キーストローク、入力内容
-- 位置情報
-- ページテキストのプログラム的解析
+## Data Collection
 
-### データの利用目的
-スクリーンショット画像は、AIサービスによる解析のためだけに使用されます。  
-その他の目的で保存・解析・共有されることはありません。
+This extension does **NOT** collect, store, or share any user data. All processing is done locally on your device.
 
-### データの第三者提供
-本拡張機能は、スクリーンショット画像をユーザーが選択したAIサービスに送信します。  
-それ以外の第三者への提供は行いません。
+### What we DON'T do:
+- We do not collect personal information
+- We do not track your browsing history
+- We do not send data to external servers (other than the AI services you choose)
+- We do not use analytics or tracking tools
+- We do not store your screenshots on any server
 
-### ローカル保存について
-本拡張機能がローカルストレージに保存するのは、ユーザー設定（APIキーや動作オプション）のみであり、スクリーンショット画像や閲覧データは保存しません。
+### What the extension does:
+- Captures screenshots of the currently visible tab (only when you click the capture button)
+- Temporarily stores the screenshot in your browser's local storage
+- Sends the screenshot to ChatGPT or Grok (based on your selection) by pasting it into their web interface
+- Stores your preferences (image quality, prompt, destination) locally in your browser
 
-### 連絡先
-質問や問題がある場合は、拡張機能のサポート用メールアドレスまでお問い合わせください。
+## Permissions Explained
+
+| Permission | Purpose |
+|------------|---------|
+| `activeTab` | To capture a screenshot of the currently visible tab when you click the extension button |
+| `clipboardWrite` | To copy the screenshot to clipboard so it can be pasted into AI services |
+| `scripting` | To automatically paste the image into ChatGPT or Grok pages |
+| `storage` | To save your preferences (image quality, prompt, destination) locally |
+| `tabs` | To find and switch to existing ChatGPT/Grok tabs |
+
+## Host Permissions
+
+The extension requests access to the following domains only when needed:
+- `chatgpt.com` and `chat.openai.com` - To paste images into ChatGPT
+- `grok.com` and `x.com` - To paste images into Grok
+
+These permissions are requested on first use and are optional.
+
+## Remote Code
+
+This extension does **NOT** use any remote code. All code is contained within the extension package.
+
+## Third-Party Services
+
+When you send a screenshot to ChatGPT or Grok, the image is processed by those services according to their respective privacy policies:
+- OpenAI (ChatGPT): https://openai.com/privacy
+- xAI (Grok): https://x.ai/legal/privacy-policy
+
+## Contact
+
+If you have any questions about this privacy policy, please contact us through the Chrome Web Store support page.
+
+## Changes to This Policy
+
+We may update this privacy policy from time to time. Any changes will be posted on this page.
+
+---
+
+**Summary:** This extension processes everything locally. We don't collect any data. Your screenshots are only sent to the AI service you choose (ChatGPT or Grok), and that happens directly in your browser.
