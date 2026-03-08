@@ -1,6 +1,6 @@
 # Privacy Policy - Screenshot to AI (ChatGPT & Grok)
 
-**Last Updated: December 2025**
+**Last Updated: March 2026**
 
 ## Overview
 
@@ -29,17 +29,19 @@ This extension does **NOT** collect, store, or share any user data. All processi
 |------------|---------|
 | `activeTab` | To capture a screenshot of the currently visible tab when you click the extension button |
 | `clipboardWrite` | To copy the screenshot to clipboard so it can be pasted into AI services |
-| `scripting` | To automatically paste the image into ChatGPT or Grok pages |
+| `scripting` | To inject the toolbar UI into web pages and to automatically paste the image into ChatGPT or Grok pages |
 | `storage` | To save your preferences (image quality, prompt, destination) locally |
 | `tabs` | To find and switch to existing ChatGPT/Grok tabs |
+| `contextMenus` | To add a right-click context menu option for sending screenshots directly to ChatGPT or Grok |
 
 ## Host Permissions
 
-The extension requests access to the following domains only when needed:
-- `chatgpt.com` and `chat.openai.com` - To paste images into ChatGPT
-- `grok.com` and `x.com` - To paste images into Grok
+The extension requires access to all URLs (`<all_urls>`) for the following purposes:
+- To display the quick-access toolbar on any web page you visit
+- To capture screenshots of any page using the region selection feature
+- To inject scripts into ChatGPT and Grok pages to paste images automatically
 
-These permissions are requested on first use and are optional.
+No data from visited pages is collected or transmitted. The extension only reads page content to the extent necessary to display its UI and send screenshots to the AI service you choose.
 
 ## Remote Code
 
