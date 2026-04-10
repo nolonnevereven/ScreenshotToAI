@@ -348,7 +348,12 @@
         <div class="correct-ans" id="ans3-correct"></div>
         <div class="your-ans" id="ans3-yours"></div>
       </div>
-      <button class="close-btn" onclick="window.close()">Close</button>
+      <div style="display:flex; gap:10px; margin-top:20px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn" onclick="goPage(1)">&#8592; Problem 1</button>
+        <button class="btn" onclick="goPage(2)">&#8592; Problem 2</button>
+        <button class="btn" onclick="goPage(3)">&#8592; Problem 3</button>
+        <button class="close-btn" style="margin:0;" onclick="window.close()">Close</button>
+      </div>
     </div>
   </div>
 
@@ -385,27 +390,30 @@ function finishExam() {
   const p3Num = p3Raw !== '' ? parseFloat(p3Raw) : null;
 
   const labels1 = {A:'10%', B:'50%', C:'90%', D:'99%'};
+  const badge = ok => ok
+    ? '<span style="display:inline-block;background:#1a7a3e;color:#fff;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle;">Correct</span>'
+    : '<span style="display:inline-block;background:#c0392b;color:#fff;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle;">Wrong</span>';
 
   // P1
   document.getElementById('ans1-correct').textContent = 'B. 50%';
   const p1Ok = p1Val === CORRECT.p1;
   const p1Str = p1Val ? (p1Val + '. ' + labels1[p1Val]) : '(no answer)';
   document.getElementById('ans1-yours').innerHTML =
-    'Your answer: <span class="' + (p1Ok ? 'result-ok' : 'result-ng') + '">' + p1Str + '</span>';
+    'Your answer: <span class="' + (p1Ok ? 'result-ok' : 'result-ng') + '">' + p1Str + '</span>' + badge(p1Ok);
 
   // P2
   document.getElementById('ans2-correct').textContent = CORRECT.p2.join(', ');
   const p2Ok = JSON.stringify(p2Val) === JSON.stringify(CORRECT.p2);
   const p2Str = p2Val.length ? p2Val.join(', ') : '(no answer)';
   document.getElementById('ans2-yours').innerHTML =
-    'Your answer: <span class="' + (p2Ok ? 'result-ok' : 'result-ng') + '">' + p2Str + '</span>';
+    'Your answer: <span class="' + (p2Ok ? 'result-ok' : 'result-ng') + '">' + p2Str + '</span>' + badge(p2Ok);
 
   // P3
   document.getElementById('ans3-correct').textContent = '21 cm';
   const p3Ok = p3Num === CORRECT.p3;
   const p3Str = p3Num !== null ? p3Num + ' cm' : '(no answer)';
   document.getElementById('ans3-yours').innerHTML =
-    'Your answer: <span class="' + (p3Ok ? 'result-ok' : 'result-ng') + '">' + p3Str + '</span>';
+    'Your answer: <span class="' + (p3Ok ? 'result-ok' : 'result-ng') + '">' + p3Str + '</span>' + badge(p3Ok);
 
   goPage('Answer');
 }
