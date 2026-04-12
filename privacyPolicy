@@ -28,7 +28,7 @@ Automatic mode uses AI to perform screen operations automatically on your behalf
 
 - Automatic mode may cause unintended actions or results, and may violate the terms of service or applicable laws of the target service.
 - It may not function correctly due to changes in the target site or differences in the operating environment.
-- If any damages arise from use of this feature — including submission errors, impact on exam results or grades, account suspension or restriction, or any other losses — **the user bears full responsibility. The developer assumes no liability whatsoever.**
+- If any damages arise from use of this feature — including submission errors, impact on exam results or grades, account suspension or restriction, or any other losses — **the user bears full responsibility. The developer expressly disclaims any and all liability whatsoever.**
 
 > Users are required to confirm their understanding and agreement each time they initiate Automatic mode.
 
@@ -49,10 +49,13 @@ This extension does **NOT** collect, store, or share any user data. All processi
 ### What the extension does
 
 - Captures screenshots of the currently visible tab (only when triggered by you, or automatically in Automatic mode with your prior consent)
-- Temporarily stores the screenshot in your browser's local storage
+- Temporarily stores the screenshot in your browser's local storage during sending; the data is not retained after the session
 - Sends the screenshot to your chosen AI service by pasting it into that service's web interface
 - In Automatic mode, reads the AI's response and executes screen operations on the current page accordingly
 - Stores your preferences (image quality, prompt, destination, mode) locally in your browser
+- When you register a custom AI service, fetches the site's favicon using the Google Favicon API (`https://www.google.com/s2/favicons`), which sends only the hostname of that URL to Google. No other data is transmitted.
+
+The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
 
 ---
 
@@ -63,6 +66,7 @@ This extension does **NOT** collect, store, or share any user data. All processi
 | `activeTab` | To capture a screenshot of the currently visible tab |
 | `scripting` | To inject the toolbar UI into web pages and to automatically paste images into AI service pages; in Automatic mode, also to execute screen operations based on AI responses |
 | `storage` | To save your preferences locally |
+| `clipboardWrite` | To copy screenshots to the clipboard for pasting into AI services |
 | `tabs` | To find and switch to existing AI service tabs |
 | `contextMenus` | To add a right-click context menu for sending screenshots |
 
@@ -73,6 +77,7 @@ The extension requires access to all URLs (`<all_urls>`) for the following purpo
 - To display the quick-access toolbar on any web page you visit
 - To capture screenshots of any page using the region selection feature
 - To inject scripts into AI service pages to paste images automatically
+- To support custom AI services registered by the user, which may be any URL
 - In Automatic mode, to execute screen operations on any page based on AI responses
 
 > No data from visited pages is collected or transmitted beyond what is necessary to send your screenshot to the AI service you have chosen.
