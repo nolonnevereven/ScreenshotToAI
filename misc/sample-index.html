@@ -5,77 +5,185 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sample Quiz</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      margin: 24px;
-      line-height: 1.6;
-    }
-    .card {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 20px 22px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-    }
-    h1 {
-      font-size: 26px;
-      margin: 0 0 6px;
-    }
-    .underline {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      margin: 0 0 14px;
-    }
-    .desc {
-      margin: 0 0 16px;
-    }
-    .desc div {
-      margin: 2px 0;
-    }
-    .btns {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
+      align-items: center;
+      justify-content: center;
+      padding: 46px 24px 24px; /* top: toolbar(42px) + 4px buffer */
     }
-    button {
-      appearance: none;
-      border: 1px solid #ddd;
+
+    .card {
+      width: 100%;
+      max-width: 620px;
       background: #fff;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: 14px;
-      cursor: pointer;
+      border: 2px solid #333;
+      border-radius: 4px;
+      overflow: hidden;
     }
-    button:hover {
-      border-color: #bbb;
+
+    /* Header — matches quiz card-header */
+    .card-header {
+      background: #333;
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+    .badge {
+      display: inline-block;
+      background: #e8f5e9;
+      border: 2px solid #388e3c;
+      border-radius: 8px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #1b5e20;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-header h1 {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    /* Body */
+    .card-body {
+      padding: 28px 32px 24px;
+    }
+
+    .intro {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* Section rows */
+    .section {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-info {}
+    .section-label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-dot.green  { background: #388e3c; }
+    .status-dot.orange { background: #e65100; }
+
+    .section-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Open button — matches quiz .btn */
+    .btn {
+      padding: 9px 22px;
+      font-size: 14px;
+      border: 1.5px solid #bbb;
+      border-radius: 4px;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .btn:hover {
+      background: #f0f0f0;
+      border-color: #999;
+    }
+
+    /* Footer */
+    .card-footer {
+      border-top: 1px solid #ddd;
+      padding: 12px 20px;
+      background: #fafafa;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Sample Quiz</h1>
-    <div class="underline">================</div>
+  <div class="card">
 
-    <div class="desc">
-      <div><strong>Normal Window</strong> : Toolbar is visible</div>
+    <div class="card-header">
+      <span class="badge">Sample Quiz</span>
+      <h1>Select Window Type</h1>
     </div>
 
-    <div class="btns">
-      <button onclick="window.open('https://nolonnevereven.github.io/ScreenshotToAI/misc/sample-quiz01.html','_blank')">
-        Open Normal Window
-      </button>
+    <div class="card-body">
+      <p class="intro">
+        Choose a window mode below to open the Sample Quiz.<br>
+        Use <strong>Normal Window</strong> to test with the browser toolbar (address bar &amp; tabs) visible,
+        or <strong>Abnormal Window</strong> to test with the browser toolbar hidden.
+      </p>
+
+      <div class="section">
+        <div class="section-info">
+          <div class="section-label">
+            <span class="status-dot green"></span>
+            Normal Window
+          </div>
+          <div class="section-desc">Opens as a regular tab — the browser toolbar (address bar &amp; tabs) is visible.</div>
+        </div>
+        <button class="btn"
+          onclick="window.open('https://nolonnevereven.github.io/ScreenshotToAI/misc/sample-quiz01.html','_blank')">
+          Open
+        </button>
+      </div>
+
+      <div class="section">
+        <div class="section-info">
+          <div class="section-label">
+            <span class="status-dot orange"></span>
+            Abnormal Window
+          </div>
+          <div class="section-desc">Opens as a popup — the browser toolbar (address bar &amp; tabs) is hidden.</div>
+        </div>
+        <button class="btn"
+          onclick="window.open('https://nolonnevereven.github.io/ScreenshotToAI/misc/sample-quiz02.html','','width=900,height=600,menubar=no,toolbar=no')">
+          Open
+        </button>
+      </div>
     </div>
 
-    <p></p>
+    <div class="card-footer">
+      Screenshot to AI &nbsp;·&nbsp; Sample Quiz
+    </div>
 
-    <div class="desc">
-      <div><strong>Abnormal Window</strong> : Toolbar is hidden</div>
-    </div>
-    <div class="btns">
-      <button onclick="window.open('https://nolonnevereven.github.io/ScreenshotToAI/misc/sample-quiz02.html','','width=900,height=600,menubar=no,toolbar=no')">
-        Open Abnormal Window
-      </button>
-    </div>
-  </main>
+  </div>
 </body>
 </html>
